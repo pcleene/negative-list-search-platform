@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mb-red: #1E40AF;
+  --color-mb-dark-red: #990000;
+  --color-navy-deep: #0B1120;
+  --color-navy-dark: #111827;
+  --color-card: #1E293B;
+  --color-card-hover: #263548;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E293B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748B;
+}
+
+/* Animated risk gauge */
+@keyframes gauge-fill {
+  from { stroke-dashoffset: 251; }
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4), 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+.glow-violet {
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4), 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+/* Slide-in drawer */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 50;
+  backdrop-filter: blur(4px);
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(92vw, 680px);
+  background: #1E293B;
+  z-index: 51;
+  display: flex;
+  flex-direction: column;
+  animation: slide-in 0.2s ease-out;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0.8; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* JSON syntax highlighting */
+.json-key { color: #93C5FD; }
+.json-string { color: #86EFAC; }
+.json-number { color: #FCD34D; }
+.json-boolean { color: #F9A8D4; }
+.json-null { color: #94A3B8; }
+.json-bracket { color: #CBD5E1; }
+
+/* Timeline line */
+.timeline-line {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #475569, transparent);
+}
